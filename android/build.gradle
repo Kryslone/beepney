@@ -1,11 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.5.31'
+    ext.kotlin_version = '1.8.22'
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.gms:google-services:4.4.2"
         // other classpath definitions...
     }
 }
@@ -16,6 +17,15 @@ allprojects {
         mavenCentral()
     }
 }
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.jetbrains.kotlin') {
+            details.useVersion '1.8.22'  // Make sure this matches the Kotlin version you are enforcing
+        }
+    }
+}
+
 
 rootProject.buildDir = '../build'
 subprojects {

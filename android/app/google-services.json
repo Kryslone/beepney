@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "246580718114",
+    "project_id": "shiftease-428317",
+    "storage_bucket": "shiftease-428317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246580718114:android:032ccd5d3b3eecd4f4f87b",
+        "android_client_info": {
+          "package_name": "com.example.beepney"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiU20FaNf4h-O6phQ0KyPjaEZ0Ng46J1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

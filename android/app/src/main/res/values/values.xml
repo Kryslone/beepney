@@ -1,0 +1,9 @@
+<resources>
+    <string name="default_web_client_id" translatable="false"></string> 
+    <string name="firebase_database_url" translatable="false">https://shiftease-428317.firebaseio.com</string> 
+    <string name="gcm_defaultSenderId" translatable="false">246580718114</string>
+    <string name="google_api_key" translatable="false">AIzaSyAiU20FaNf4h-O6phQ0KyPjaEZ0Ng46J1M</string>
+    <string name="google_app_id" translatable="false">1:246580718114:android:032ccd5d3b3eecd4f4f87b</string> 
+    <string name="google_crash_reporting_api_key" translatable="false"></string> 
+    <string name="project_id" translatable="false">shiftease-428317</string>
+</resources>

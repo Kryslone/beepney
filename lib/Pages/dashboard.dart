@@ -1,8 +1,10 @@
 // ignore_for_file: unused_local_variable, unused_field, library_private_types_in_public_api
 
+import 'package:beepney/Pages/loginpage.dart';
 import 'package:beepney/Pages/shared_data.dart';
 import 'package:camera/camera.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dash/flutter_dash.dart';
@@ -82,7 +84,9 @@ class _DashBoardState extends State<DashBoard> {
                       firstRoute: Provider.of<SharedData>(context).firstroute,
                       secondRoute: Provider.of<SharedData>(context).secondroute,
                     )
-                  : const Splash(),
+                  : const Splash(
+                      child: null,
+                    ),
             ),
             PersistentTabConfig.noScreen(
               item: ItemConfig(
@@ -122,16 +126,16 @@ class _DashBoardState extends State<DashBoard> {
                   )),
             ),
             PersistentTabConfig(
-              screen: ProfilePage(),
+              screen: const ProfilePage(),
               item: ItemConfig(
-                  activeForegroundColor: Color.fromRGBO(07, 30, 51, 1),
+                  activeForegroundColor: const Color.fromRGBO(07, 30, 51, 1),
                   inactiveForegroundColor: Colors.grey,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.person,
                     size: 30,
                   ),
                   title: "Profile",
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontFamily: 'IstokWeb',
                     fontWeight: FontWeight.bold,
                     fontSize: 17,
@@ -2619,6 +2623,36 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
+                Container(
+                  margin: const EdgeInsets.only(
+                      top: 20), // Adjust spacing as needed
+                  child: ElevatedButton(
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                      pushScreen(context,
+                          screen: const LoginPage(), withNavBar: false);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor:
+                          const Color.fromRGBO(07, 30, 51, 1), // Text color
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(18.0), // Rounded corners
+                      ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 40.0,
+                          vertical: 15.0), // Adjust padding as needed
+                      child: Text(
+                        'Sign Out',
+                        style: TextStyle(
+                            fontSize: 16), // Adjust text style as needed
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 150,
                 ),
@@ -3676,7 +3710,7 @@ class GuidelinesPage extends StatelessWidget {
 }
 
 class Splash extends StatelessWidget {
-  const Splash({super.key});
+  const Splash({super.key, required child});
 
   @override
   Widget build(BuildContext context) {
